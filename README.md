@@ -18,7 +18,11 @@ Password: 123
 Use Cases:
 
 Search restaurants
+
 CRUD Reviews
+
 CRUD Restaurants
+
 Approve entries submitted by users
+
 
