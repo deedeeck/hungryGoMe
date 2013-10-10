@@ -1,0 +1,20 @@
+Get Resturant By Type
+
+/*** Stored Procedure ***/
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS `hungrygome`.`get_resturant`$$
+CREATE PROCEDURE `hungrygome`.`get_resturant_by_type` (
+IN resturantType VARCHAR(64)
+)
+
+BEGIN
+select *
+from restaurant
+where 
+rt_name = resturantType
+and
+approve = true
+;
+END $$
+DELIMITER ;

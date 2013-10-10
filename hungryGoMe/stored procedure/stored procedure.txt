@@ -1,0 +1,48 @@
+$rs = mysql_query('CALL new_procedure()');
+echo "<table border='1'>
+<tr>>
+<th>Stall name</th>
+<th>Address</th>
+<th>Region</th>
+<th>Food type</th>
+<th>Restaurant type</th>
+</tr>";
+while ($row = mysql_fetch_assoc($rs))
+{
+debug($row);
+}
+
+function debug($row)
+{
+	/*
+	echo $o['stall_name'] . "\n";
+	echo $o['address'] . "\n";
+	echo $o['region'] . "\n";
+	echo $o['ft_name'] . "\n";
+	echo $o['rt_name'] . "\n";
+	echo "</br>";
+*/
+  echo "<tr>";
+  echo "<td>" . $row['stall_name'] . "</td>";
+  echo "<td>" . $row['address'] . "</td>";
+  echo "<td>" . $row['region'] . "</td>";
+  echo "<td>" . $row['ft_name'] . "</td>";
+  echo "<td>" . $row['rt_name'] . "</td>";
+  echo "</tr>";
+	/*
+	print '<pre>';
+	print_r($o);
+	print '</pre>';
+	*/
+}
+
+DELIMITER $$
+
+CREATE PROCEDURE `hungrygome`.`new_procedure` (
+)
+BEGIN
+select *
+from restaurant;
+
+END $$
+DELIMITER ;
